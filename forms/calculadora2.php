@@ -8,10 +8,10 @@
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <label for="operando1">Operando1:</label>
-        <input type="number" name="operando1" id="operando1" value="0"><br>
+        <input type="number" name="operando1" id="operando1"><br>
 
         <label for="operando2">Operando2</label>
-        <input type="number" name="operando2" id="operando2" value="0"><br>
+        <input type="number" name="operando2" id="operando2"><br>
 
         <label for="selecciona">Selecciona Operacion</label><br>
         <input type="radio"  checked name="operador" value="suma" >Suma <br>
@@ -23,7 +23,7 @@
         <input type="reset" value="Borrar">
     </form>
     <?php 
-    error_reporting(0);
+    if( (isset($_POST['operador']) && isset($_POST['operando1']) && isset($_POST['operando2']))){
     echo "El resultado de la operacion es: <br>";
     if($_POST['operador']=='suma'){
         echo $_POST["operando1"]+ $_POST["operando2"];
@@ -37,6 +37,7 @@
     if($_POST['operador']=='division'){
         echo $_POST["operando1"]/ $_POST["operando2"];
     }
+}
     ?>
 </body>
 </html>
