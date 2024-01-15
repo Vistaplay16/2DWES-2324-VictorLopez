@@ -45,7 +45,7 @@
             if($x==true){
                 session_start();
                 $_SESSION['usu']=$usu;
-                header('Location: menu.php');
+                header('Location: comprar.php');
                 
             }else{
                 echo "<p id='mensE'>Usuario no encontrado</p>";

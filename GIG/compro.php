@@ -7,29 +7,7 @@
 </head>
 <body>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <h1>Alta de clientes</h1>
-        <label for="NIF">NIF</label>
-        <?php 
-         $servername = "localhost";
-         $username = "root";
-         $password = "rootroot";
-         $dbname = "comprasweb";
-         try{
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmtCon=$conn->prepare("SELECT NIF FROM CLIENTE");
-            $stmtCon->execute();
-            $arrayCons=$stmtCon->fetchAll(PDO::FETCH_COLUMN);
-            echo "<select id='nif'>";
-            for ($i=0; $i < count($arrayCons) ; $i++) { 
-                echo "<option value=".$arrayCons[$i].">".$arrayCons[$i]."</option>"; 
-            }
-            echo "</select>";
-        }catch(PDOException $e){
-            echo "Error: " . $e->getMessage();
-        }
-        $conn=null;
-        ?>
+        <h1>Alta de clientes</h1>   
         <br>
         <label for="idProd">Id Producto</label>
         <?php 

@@ -58,6 +58,10 @@ body{
     right:30px ;
     top: 20px;
 }
+#cerrarSes:hover{
+    background-color: rgb(39, 39, 119);
+
+}
 #titulo{
     position: absolute;
     top: 10px;

@@ -12,13 +12,8 @@ session_start();
 <body>
     <div class="navbar">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-            <input type="submit" value="Cerrar Sesion" id="cerrarSes">
+            <button type="submit" id="cerrarSes">Cerrar Sesion</button>
         </form>
-        <?php 
-        if ($_SESSION['usu'] == true) {
-            echo "<h2 id='subTitulo'>Bienvenido     ". $_SESSION['usu']."</h2>";
-        }
-        ?>
         <h1 id="titulo">Menu</h1>
         <ul>
             <li><a href="comaltaalm.php"><button>Alta Almacén</button></a></li>
@@ -39,13 +34,15 @@ session_start();
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         cerrarSesion();
     }
-    
+    if($_SESSION["usu"]==null){
+        header("Location: inicio.php");
+    }
     
     function cerrarSesion(){
         
         $_SESSION = array();
         setcookie(session_name(),'', time() - 3600, '/');
-        header("Location: comlog.php");
+        header("Location: inicio.php");
     }
     ?>
 
